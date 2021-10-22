@@ -1,0 +1,37 @@
+<h1 class="text-center text-info"> Add Managers Page </h1>
+<div class="container col-md-6">
+    <div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label> Managers Name </label>
+            <input #empName='ngModel' required [(ngModel)]="object.name" placeholder=" Your Name" type="text" class="form-control">
+        <div *ngIf="empName.touched && empName.invalid" class="alert alert-danger">
+            Please Enter Valid Name
+        </div>
+        </div>
+        <div class="form-group">
+            <label> Managers Position </label>
+            <input #empPosition='ngModel' required [(ngModel)]="object.position" placeholder=" Your Position" type="text" class="form-control">
+            <div *ngIf="empPosition.touched && empPosition.invalid" class="alert alert-danger">
+                Please Enter Valid Position
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label> Managers Profile </label>
+            <input  [(ngModel)]="object.imgUrl" placeholder=" Your Profile" type="url" class="form-control">
+        </div>
+
+        <div *ngIf="empName.valid && empPosition.valid">
+            <button (click)="save()" class="btn btn-info btn-block w-50 mx-auto">
+                Send Data
+            </button>
+        </div>
+        <div *ngIf="empName.invalid && empPosition.invalid">
+        <button disabled class="btn btn-info btn-block w-50 mx-auto">
+            Send Data
+        </button>
+        </div>
+    </div>
+</div>
+</div>
